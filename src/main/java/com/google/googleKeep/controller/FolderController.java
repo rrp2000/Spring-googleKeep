@@ -56,6 +56,16 @@ public class FolderController {
         return new ResponseEntity<>("Folder not found", HttpStatus.NOT_FOUND);
     }
 
+    //get all folders by user id
+
+    @GetMapping("/folders/user/{userId}")
+    public ResponseEntity<?> getAllFoldersByUserId(@PathVariable("userId") String userId) {
+        logger.info("FolderController:getAllFoldersByUserId: Started folder retrieval Process using userId");
+        List<FolderModel> response = folderService.getAllFoldersByUserId(userId);
+        logger.info("Finished folder retrieval Process using userId");
+        return new ResponseEntity<List<FolderModel>>(response, HttpStatus.OK);
+    }
+
     //update folder
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateFolder(@PathVariable("id") String id, @RequestBody FolderModel folderUpdates) {

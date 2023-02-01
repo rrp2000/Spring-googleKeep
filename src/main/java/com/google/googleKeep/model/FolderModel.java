@@ -19,6 +19,9 @@ public class FolderModel {
     @Id
     private String id;
 
+    @NotBlank(message = "Enter a valid userId")
+    private String userId;
+
     @NotBlank(message = "Enter a valid folder name")
     private String name;
 

@@ -52,6 +52,14 @@ public class FolderService {
         }
     }
 
+    //retrive folder by Userid service
+    public List<FolderModel> getAllFoldersByUserId(String userId){
+        List<FolderModel> folders = folderRepository.findAllByUserId(userId);
+
+        return folders;
+
+    }
+
     //Update folder service
     public FolderModel updateFolder(String id,FolderModel folderUpdates){
         logger.info("Checking if folder exists");
